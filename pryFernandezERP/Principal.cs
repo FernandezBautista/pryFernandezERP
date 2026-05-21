@@ -6,9 +6,16 @@ namespace pryFernandezERP
 {
     public partial class Principal : Form
     {
-        public Principal()
+        string usuario;
+        string rol;
+
+        public Principal(string usuarioLogeado, string rolPerfil)
         {
             InitializeComponent();
+
+            usuario = usuarioLogeado;
+
+            rol = rolPerfil;
         }
 
         private void Principal_Load(object sender, EventArgs e)
@@ -31,6 +38,12 @@ namespace pryFernandezERP
 
                 MessageBox.Show(ex.Message);
             }
+
+            lblUsuario.Text = usuario;
+
+            lblRolPerfil.Text = rol;
+
+            lblFechaYHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         }
     }
 }
