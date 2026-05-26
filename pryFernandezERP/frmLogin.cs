@@ -89,8 +89,12 @@ namespace pryFernandezERP
                 if (lector.Read())
                 {
                     string usuario = lector["Nombre"].ToString();
-
                     string rol = lector["Rol"].ToString();
+
+                    Sesion.Usuario = lector["Rol"].ToString();
+                    Sesion.Rol = rol;
+
+                    CAuditoria.Grabar("Inicio de Sesión");
 
                     string perfilSeleccionado = cmbPerfil.Text;
 

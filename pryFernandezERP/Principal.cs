@@ -44,6 +44,8 @@ namespace pryFernandezERP
             lblRolPerfil.Text = rol;
 
             lblFechaYHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
+            CAuditoria.Grabar("Ingreso a MainERP");
         }
     }
 }

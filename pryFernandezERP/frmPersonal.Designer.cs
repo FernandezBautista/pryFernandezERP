@@ -34,12 +34,10 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.grpDomicilio = new System.Windows.Forms.GroupBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtGeo = new System.Windows.Forms.TextBox();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
             this.cmbProvincia = new System.Windows.Forms.ComboBox();
             this.lblProvincia = new System.Windows.Forms.Label();
             this.lblLocalidad = new System.Windows.Forms.Label();
-            this.lblGeo = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -79,16 +77,14 @@
             // grpDomicilio
             // 
             this.grpDomicilio.Controls.Add(this.txtDireccion);
-            this.grpDomicilio.Controls.Add(this.txtGeo);
             this.grpDomicilio.Controls.Add(this.cmbLocalidad);
             this.grpDomicilio.Controls.Add(this.cmbProvincia);
             this.grpDomicilio.Controls.Add(this.lblProvincia);
             this.grpDomicilio.Controls.Add(this.lblLocalidad);
-            this.grpDomicilio.Controls.Add(this.lblGeo);
             this.grpDomicilio.Controls.Add(this.lblDireccion);
             this.grpDomicilio.Location = new System.Drawing.Point(13, 107);
             this.grpDomicilio.Name = "grpDomicilio";
-            this.grpDomicilio.Size = new System.Drawing.Size(200, 137);
+            this.grpDomicilio.Size = new System.Drawing.Size(200, 106);
             this.grpDomicilio.TabIndex = 3;
             this.grpDomicilio.TabStop = false;
             this.grpDomicilio.Text = "Domicilio";
@@ -100,17 +96,10 @@
             this.txtDireccion.Size = new System.Drawing.Size(115, 20);
             this.txtDireccion.TabIndex = 11;
             // 
-            // txtGeo
-            // 
-            this.txtGeo.Location = new System.Drawing.Point(67, 52);
-            this.txtGeo.Name = "txtGeo";
-            this.txtGeo.Size = new System.Drawing.Size(115, 20);
-            this.txtGeo.TabIndex = 10;
-            // 
             // cmbLocalidad
             // 
             this.cmbLocalidad.FormattingEnabled = true;
-            this.cmbLocalidad.Location = new System.Drawing.Point(89, 104);
+            this.cmbLocalidad.Location = new System.Drawing.Point(89, 75);
             this.cmbLocalidad.Name = "cmbLocalidad";
             this.cmbLocalidad.Size = new System.Drawing.Size(93, 21);
             this.cmbLocalidad.TabIndex = 9;
@@ -118,15 +107,16 @@
             // cmbProvincia
             // 
             this.cmbProvincia.FormattingEnabled = true;
-            this.cmbProvincia.Location = new System.Drawing.Point(89, 78);
+            this.cmbProvincia.Location = new System.Drawing.Point(89, 49);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(93, 21);
             this.cmbProvincia.TabIndex = 8;
+            this.cmbProvincia.SelectedIndexChanged += new System.EventHandler(this.cmbProvincia_SelectedIndexChanged);
             // 
             // lblProvincia
             // 
             this.lblProvincia.AutoSize = true;
-            this.lblProvincia.Location = new System.Drawing.Point(7, 82);
+            this.lblProvincia.Location = new System.Drawing.Point(7, 53);
             this.lblProvincia.Name = "lblProvincia";
             this.lblProvincia.Size = new System.Drawing.Size(54, 13);
             this.lblProvincia.TabIndex = 7;
@@ -135,20 +125,11 @@
             // lblLocalidad
             // 
             this.lblLocalidad.AutoSize = true;
-            this.lblLocalidad.Location = new System.Drawing.Point(6, 109);
+            this.lblLocalidad.Location = new System.Drawing.Point(6, 80);
             this.lblLocalidad.Name = "lblLocalidad";
             this.lblLocalidad.Size = new System.Drawing.Size(56, 13);
             this.lblLocalidad.TabIndex = 6;
             this.lblLocalidad.Text = "Localidad:";
-            // 
-            // lblGeo
-            // 
-            this.lblGeo.AutoSize = true;
-            this.lblGeo.Location = new System.Drawing.Point(7, 52);
-            this.lblGeo.Name = "lblGeo";
-            this.lblGeo.Size = new System.Drawing.Size(30, 13);
-            this.lblGeo.TabIndex = 5;
-            this.lblGeo.Text = "Geo:";
             // 
             // lblDireccion
             // 
@@ -182,7 +163,7 @@
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(137, 259);
+            this.btnCargar.Location = new System.Drawing.Point(137, 232);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(75, 23);
             this.btnCargar.TabIndex = 15;
@@ -192,7 +173,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(12, 259);
+            this.btnVolver.Location = new System.Drawing.Point(13, 232);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 16;
@@ -204,7 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 294);
+            this.ClientSize = new System.Drawing.Size(224, 266);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.txtApellido);
@@ -216,7 +197,9 @@
             this.Controls.Add(this.lblDNI);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPersonal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personal";
+            this.Load += new System.EventHandler(this.frmPersonal_Load);
             this.grpDomicilio.ResumeLayout(false);
             this.grpDomicilio.PerformLayout();
             this.ResumeLayout(false);
@@ -231,11 +214,9 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.GroupBox grpDomicilio;
         private System.Windows.Forms.Label lblDireccion;
-        private System.Windows.Forms.Label lblGeo;
         private System.Windows.Forms.Label lblProvincia;
         private System.Windows.Forms.Label lblLocalidad;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtGeo;
         private System.Windows.Forms.ComboBox cmbLocalidad;
         private System.Windows.Forms.ComboBox cmbProvincia;
         private System.Windows.Forms.TextBox txtDni;

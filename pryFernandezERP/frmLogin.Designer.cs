@@ -42,11 +42,11 @@
             // lblUsuarioLogin
             // 
             this.lblUsuarioLogin.AutoSize = true;
-            this.lblUsuarioLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioLogin.Location = new System.Drawing.Point(16, 21);
             this.lblUsuarioLogin.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUsuarioLogin.Name = "lblUsuarioLogin";
-            this.lblUsuarioLogin.Size = new System.Drawing.Size(87, 24);
+            this.lblUsuarioLogin.Size = new System.Drawing.Size(79, 24);
             this.lblUsuarioLogin.TabIndex = 0;
             this.lblUsuarioLogin.Text = "Usuario:";
             this.lblUsuarioLogin.Click += new System.EventHandler(this.lblUsuarioLogin_Click);
@@ -54,11 +54,11 @@
             // lblContraseñaLogin
             // 
             this.lblContraseñaLogin.AutoSize = true;
-            this.lblContraseñaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseñaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContraseñaLogin.Location = new System.Drawing.Point(16, 68);
             this.lblContraseñaLogin.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblContraseñaLogin.Name = "lblContraseñaLogin";
-            this.lblContraseñaLogin.Size = new System.Drawing.Size(122, 24);
+            this.lblContraseñaLogin.Size = new System.Drawing.Size(111, 24);
             this.lblContraseñaLogin.TabIndex = 1;
             this.lblContraseñaLogin.Text = "Contraseña:";
             this.lblContraseñaLogin.Click += new System.EventHandler(this.lblContraseñaLogin_Click);
@@ -104,11 +104,11 @@
             // lblPerfil
             // 
             this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPerfil.Location = new System.Drawing.Point(16, 113);
             this.lblPerfil.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(63, 24);
+            this.lblPerfil.Size = new System.Drawing.Size(56, 24);
             this.lblPerfil.TabIndex = 6;
             this.lblPerfil.Text = "Perfil:";
             // 
