@@ -42,47 +42,46 @@
             // lblUsuarioLogin
             // 
             this.lblUsuarioLogin.AutoSize = true;
-            this.lblUsuarioLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioLogin.Location = new System.Drawing.Point(16, 21);
             this.lblUsuarioLogin.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUsuarioLogin.Name = "lblUsuarioLogin";
-            this.lblUsuarioLogin.Size = new System.Drawing.Size(79, 24);
+            this.lblUsuarioLogin.Size = new System.Drawing.Size(64, 18);
             this.lblUsuarioLogin.TabIndex = 0;
             this.lblUsuarioLogin.Text = "Usuario:";
-            this.lblUsuarioLogin.Click += new System.EventHandler(this.lblUsuarioLogin_Click);
             // 
             // lblContraseñaLogin
             // 
             this.lblContraseñaLogin.AutoSize = true;
-            this.lblContraseñaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseñaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContraseñaLogin.Location = new System.Drawing.Point(16, 68);
             this.lblContraseñaLogin.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblContraseñaLogin.Name = "lblContraseñaLogin";
-            this.lblContraseñaLogin.Size = new System.Drawing.Size(111, 24);
+            this.lblContraseñaLogin.Size = new System.Drawing.Size(89, 18);
             this.lblContraseñaLogin.TabIndex = 1;
             this.lblContraseñaLogin.Text = "Contraseña:";
-            this.lblContraseñaLogin.Click += new System.EventHandler(this.lblContraseñaLogin_Click);
             // 
             // txtUsuarioLogin
             // 
+            this.txtUsuarioLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuarioLogin.Location = new System.Drawing.Point(178, 21);
             this.txtUsuarioLogin.Name = "txtUsuarioLogin";
-            this.txtUsuarioLogin.Size = new System.Drawing.Size(216, 29);
+            this.txtUsuarioLogin.Size = new System.Drawing.Size(216, 24);
             this.txtUsuarioLogin.TabIndex = 2;
-            this.txtUsuarioLogin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtContraseñaLogin
             // 
+            this.txtContraseñaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseñaLogin.Location = new System.Drawing.Point(178, 63);
             this.txtContraseñaLogin.Name = "txtContraseñaLogin";
             this.txtContraseñaLogin.PasswordChar = '·';
-            this.txtContraseñaLogin.Size = new System.Drawing.Size(216, 29);
+            this.txtContraseñaLogin.Size = new System.Drawing.Size(216, 24);
             this.txtContraseñaLogin.TabIndex = 3;
             // 
             // btnIniciarSesion
             // 
             this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciarSesion.Location = new System.Drawing.Point(299, 165);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(299, 156);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(95, 34);
             this.btnIniciarSesion.TabIndex = 4;
@@ -93,7 +92,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(205, 165);
+            this.btnCancelar.Location = new System.Drawing.Point(178, 156);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 34);
             this.btnCancelar.TabIndex = 5;
@@ -104,20 +103,22 @@
             // lblPerfil
             // 
             this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(16, 113);
+            this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPerfil.Location = new System.Drawing.Point(16, 112);
             this.lblPerfil.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(56, 24);
+            this.lblPerfil.Size = new System.Drawing.Size(45, 18);
             this.lblPerfil.TabIndex = 6;
             this.lblPerfil.Text = "Perfil:";
             // 
             // cmbPerfil
             // 
+            this.cmbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPerfil.FormattingEnabled = true;
             this.cmbPerfil.Location = new System.Drawing.Point(178, 105);
             this.cmbPerfil.Name = "cmbPerfil";
-            this.cmbPerfil.Size = new System.Drawing.Size(216, 32);
+            this.cmbPerfil.Size = new System.Drawing.Size(216, 26);
             this.cmbPerfil.TabIndex = 7;
             // 
             // frmLogin
@@ -126,7 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(408, 211);
+            this.ClientSize = new System.Drawing.Size(408, 197);
             this.Controls.Add(this.cmbPerfil);
             this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.btnCancelar);

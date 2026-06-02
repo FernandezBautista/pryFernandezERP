@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace pryFernandezERP
 {
@@ -18,42 +11,22 @@ namespace pryFernandezERP
         public frmLogin()
         {
             InitializeComponent();
-        }
-
-        private void lblUsuarioLogin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblContraseñaLogin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            this.AcceptButton = btnIniciarSesion;
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
             CConexion cn = new CConexion();
-
             try
             {
                 cn.conexion.Open();
-
-                string consulta = "SELECT Roles FROM Roles";
-
-                OleDbCommand comando = new OleDbCommand(consulta, cn.conexion);
-
+                OleDbCommand comando = new OleDbCommand("SELECT Roles FROM Roles", cn.conexion);
                 OleDbDataReader lector = comando.ExecuteReader();
-
+                cmbPerfil.Items.Clear();
                 while (lector.Read())
                 {
                     cmbPerfil.Items.Add(lector["Roles"].ToString());
                 }
-
                 cn.conexion.Close();
             }
             catch (Exception ex)
@@ -65,55 +38,44 @@ namespace pryFernandezERP
         private void btnIniciarSesion_Click_1(object sender, EventArgs e)
         {
             CConexion cn = new CConexion();
-
             try
             {
                 cn.conexion.Open();
 
-                string consulta = @"SELECT Usuario.Nombre, Perfil.Nombre AS Rol
+                string consulta = @"SELECT Perfil.Nombre AS NombrePerfil
                                     FROM (Usuario
-                                    INNER JOIN [Usuario-Perfil]
-                                    ON Usuario.Id_Usuario = [Usuario-Perfil].Id_Usuario)
-                                    INNER JOIN Perfil
-                                    ON [Usuario-Perfil].Id_Perfil = Perfil.Id_Perfil
-                                    WHERE Mail = ? AND Contraseña = ?";
+                                    INNER JOIN [Usuario-Perfil] ON Usuario.Id_Usuario = [Usuario-Perfil].Id_Usuario)
+                                    INNER JOIN Perfil ON [Usuario-Perfil].Id_Perfil = Perfil.Id_Perfil
+                                    WHERE Usuario.Mail = ? AND Usuario.Contraseña = ?";
 
                 OleDbCommand comando = new OleDbCommand(consulta, cn.conexion);
-
                 comando.Parameters.AddWithValue("@Mail", txtUsuarioLogin.Text);
-
                 comando.Parameters.AddWithValue("@Contraseña", txtContraseñaLogin.Text);
 
                 OleDbDataReader lector = comando.ExecuteReader();
 
                 if (lector.Read())
                 {
-                    string usuario = lector["Nombre"].ToString();
-                    string rol = lector["Rol"].ToString();
+                    string nombrePerfil = lector["NombrePerfil"].ToString();
+                    string rolSeleccionado = cmbPerfil.Text;
 
-                    Sesion.Usuario = lector["Rol"].ToString();
-                    Sesion.Rol = rol;
+                    Sesion.Usuario = nombrePerfil;
+                    Sesion.Rol = rolSeleccionado;
 
                     CAuditoria.Grabar("Inicio de Sesión");
 
-                    string perfilSeleccionado = cmbPerfil.Text;
+                    MessageBox.Show("Bienvenido " + nombrePerfil);
 
-                    MessageBox.Show("Bienvenido");
-
-                    if (perfilSeleccionado == "Recursos Humanos")
+                    if (rolSeleccionado == "Recursos Humanos")
                     {
                         frmPersonal frm = new frmPersonal();
-
                         frm.Show();
-
                         this.Hide();
                     }
-                    else if (perfilSeleccionado == "Administrador")
+                    else if (rolSeleccionado == "Administrador")
                     {
-                        Principal frm = new Principal(usuario, rol);
-
+                        Principal frm = new Principal(nombrePerfil, rolSeleccionado);
                         frm.Show();
-
                         this.Hide();
                     }
                     else
@@ -124,13 +86,11 @@ namespace pryFernandezERP
                 else
                 {
                     intentos--;
-
                     MessageBox.Show("Usuario o contraseña incorrectos\nIntentos restantes: " + intentos);
 
                     if (intentos == 0)
                     {
                         MessageBox.Show("Se agotaron los intentos");
-
                         btnIniciarSesion.Enabled = false;
                     }
                 }
