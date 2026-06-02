@@ -124,7 +124,7 @@ namespace pryFernandezERP
             txtUsuario.Clear();
         }
 
-        private void btnCargar_Click_1(object sender, EventArgs e)
+        private void btnCargar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos()) return;
 
