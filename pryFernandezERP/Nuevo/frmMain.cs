@@ -49,7 +49,8 @@ namespace pryFernandezERP
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // proximamente
+            frmEditarPersonal frm =new frmEditarPersonal();
+            frm.Show();
         }
 
         private void verRegistrosToolStripMenuItem_Click(object sender, EventArgs e)

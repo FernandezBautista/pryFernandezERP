@@ -120,7 +120,7 @@
             this.lblHora.AutoSize = true;
             this.lblHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(242)))));
             this.lblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(68)))));
-            this.lblHora.Location = new System.Drawing.Point(438, 262);
+            this.lblHora.Location = new System.Drawing.Point(462, 262);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(30, 13);
             this.lblHora.TabIndex = 4;
