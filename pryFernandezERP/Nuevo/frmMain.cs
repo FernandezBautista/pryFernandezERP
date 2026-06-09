@@ -22,19 +22,23 @@ namespace pryFernandezERP
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("Rol: '" + Sesion.Rol + "'");
+
             bool esAdmin = Sesion.Rol == "Administrador";
             bool esRRHH = Sesion.Rol == "Recursos Humanos";
-
             personalToolStripMenuItem.Visible = esAdmin || esRRHH;
             auditoriaToolStripMenuItem.Visible = esAdmin;
-
             lblUsuario.Text = "Usuario: " + Sesion.Usuario;
             lblRol.Text = "Rol: " + Sesion.Rol;
             lblHora.Text = "Inicio: " + DateTime.Now.ToString("HH:mm:ss");
-
             statusStrip1.Items.Clear();
             statusStrip1.Items.Add("● Base de datos conectada");
             statusStrip1.Items[0].ForeColor = Color.FromArgb(34, 139, 34);
+
+            foreach (ToolStripMenuItem item in menuStrip1.Items)
+            {
+                item.ForeColor = Color.Black;
+            }
         }
 
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)

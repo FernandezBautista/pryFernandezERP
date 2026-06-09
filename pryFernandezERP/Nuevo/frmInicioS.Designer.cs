@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicioS));
             this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
             this.txtUsuario = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblContraseña = new MaterialSkin.Controls.MaterialLabel();
@@ -35,6 +36,7 @@
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.btnCancelar = new MaterialSkin.Controls.MaterialButton();
+            this.chkContraseña = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -124,7 +126,7 @@
             // 
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(68)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(12, 250);
+            this.materialDivider1.Location = new System.Drawing.Point(12, 271);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
             this.materialDivider1.Size = new System.Drawing.Size(307, 10);
@@ -133,13 +135,14 @@
             // 
             // materialButton2
             // 
+            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(68)))));
             this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton2.Depth = 0;
             this.materialButton2.ForeColor = System.Drawing.Color.Cyan;
             this.materialButton2.HighEmphasis = true;
             this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(193, 269);
+            this.materialButton2.Location = new System.Drawing.Point(191, 290);
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
@@ -154,11 +157,12 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.AutoSize = false;
             this.btnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnCancelar.Depth = 0;
             this.btnCancelar.HighEmphasis = true;
             this.btnCancelar.Icon = null;
-            this.btnCancelar.Location = new System.Drawing.Point(15, 269);
+            this.btnCancelar.Location = new System.Drawing.Point(13, 290);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancelar.Name = "btnCancelar";
@@ -169,6 +173,21 @@
             this.btnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnCancelar.UseAccentColor = false;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
+            // 
+            // chkContraseña
+            // 
+            this.chkContraseña.AutoSize = true;
+            this.chkContraseña.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkContraseña.Checked = true;
+            this.chkContraseña.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkContraseña.Location = new System.Drawing.Point(12, 248);
+            this.chkContraseña.Name = "chkContraseña";
+            this.chkContraseña.Size = new System.Drawing.Size(118, 17);
+            this.chkContraseña.TabIndex = 9;
+            this.chkContraseña.Text = "Mostrar Contraseña";
+            this.chkContraseña.UseVisualStyleBackColor = true;
+            this.chkContraseña.CheckedChanged += new System.EventHandler(this.chkContraseña_CheckedChanged);
             // 
             // frmInicioS
             // 
@@ -176,6 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(331, 383);
+            this.Controls.Add(this.chkContraseña);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.materialButton2);
             this.Controls.Add(this.materialDivider1);
@@ -183,6 +203,7 @@
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInicioS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -201,5 +222,6 @@
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialButton btnCancelar;
+        private System.Windows.Forms.CheckBox chkContraseña;
     }
 }

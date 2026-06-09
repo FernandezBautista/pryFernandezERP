@@ -27,10 +27,13 @@ namespace pryFernandezERP
             try
             {
                 cn.conexion.Open();
-                string consulta = @"SELECT Perfil.Nombre AS NombrePerfil
-                                    FROM (Usuario
+                string consulta = @"SELECT Perfil.Nombre AS NombrePerfil, Roles.Roles AS NombreRol
+                                    FROM ((Usuario
                                     INNER JOIN [Usuario-Perfil] ON Usuario.Id_Usuario = [Usuario-Perfil].Id_Usuario)
-                                    INNER JOIN Perfil ON [Usuario-Perfil].Id_Perfil = Perfil.Id_Perfil
+                                    INNER JOIN Perfil ON [Usuario-Perfil].Id_Perfil = Perfil.Id_Perfil)
+                                    INNER JOIN (UsuarioRol 
+                                    INNER JOIN Roles ON UsuarioRol.Id_Rol = Roles.Id_Rol)
+                                    ON Usuario.Id_Usuario = UsuarioRol.Id_Usuario
                                     WHERE Usuario.Mail = ? AND Usuario.Contraseña = ?";
                 OleDbCommand comando = new OleDbCommand(consulta, cn.conexion);
                 comando.Parameters.AddWithValue("@Mail", txtUsuario.Text);
@@ -38,11 +41,10 @@ namespace pryFernandezERP
                 OleDbDataReader lector = comando.ExecuteReader();
                 if (lector.Read())
                 {
-                    string nombrePerfil = lector["NombrePerfil"].ToString();
-                    Sesion.Usuario = nombrePerfil;
-                    Sesion.Rol = nombrePerfil;
+                    Sesion.Usuario = lector["NombrePerfil"].ToString();
+                    Sesion.Rol = lector["NombreRol"].ToString();
                     CAuditoria.Grabar("Inicio de Sesión");
-                    MessageBox.Show("Bienvenido " + nombrePerfil);
+                    MessageBox.Show("Bienvenido " + Sesion.Usuario);
                     frmMain frm = new frmMain();
                     frm.Show();
                     this.Hide();
@@ -68,6 +70,16 @@ namespace pryFernandezERP
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void chkContraseña_CheckedChanged(object sender, EventArgs e)
+        {
+            txtContraseña.UseSystemPasswordChar = !chkContraseña.Checked;
         }
     }
 }

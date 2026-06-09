@@ -2,15 +2,8 @@
 {
     partial class frmRegistroPersonal
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,39 +15,36 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroPersonal));
             this.grpDatos = new System.Windows.Forms.GroupBox();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblDni = new System.Windows.Forms.Label();
             this.Domicilio = new System.Windows.Forms.GroupBox();
+            this.btnAgregarDomicilio = new MaterialSkin.Controls.MaterialButton();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
+            this.cmbProvincia = new System.Windows.Forms.ComboBox();
+            this.lblDireccion = new System.Windows.Forms.Label();
             this.lblLocalidad = new System.Windows.Forms.Label();
             this.lblProvincia = new System.Windows.Forms.Label();
-            this.lblDireccion = new System.Windows.Forms.Label();
-            this.cmbProvincia = new System.Windows.Forms.ComboBox();
-            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.btnAgregarDomicilio = new MaterialSkin.Controls.MaterialButton();
             this.grpContacto = new System.Windows.Forms.GroupBox();
+            this.btnAgregarTelefono = new System.Windows.Forms.Button();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblMail = new System.Windows.Forms.Label();
             this.grpRedes = new System.Windows.Forms.GroupBox();
             this.btnCargarRedes = new System.Windows.Forms.Button();
             this.cmbRedes = new System.Windows.Forms.ComboBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
-            this.lblMail = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.lblDomicilios = new System.Windows.Forms.Label();
-            this.btnAgregarTelefono = new System.Windows.Forms.Button();
             this.dgvDomicilios = new System.Windows.Forms.DataGridView();
             this.dgvContactos = new System.Windows.Forms.DataGridView();
             this.lblTyR = new System.Windows.Forms.Label();
@@ -82,6 +72,39 @@
             this.grpDatos.TabStop = false;
             this.grpDatos.Text = "Datos Personales";
             // 
+            // lblDni
+            // 
+            this.lblDni.AutoSize = true;
+            this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
+            this.lblDni.Location = new System.Drawing.Point(7, 78);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(33, 13);
+            this.lblDni.TabIndex = 8;
+            this.lblDni.Text = "DNI:";
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
+            this.lblApellido.Location = new System.Drawing.Point(7, 52);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(56, 13);
+            this.lblApellido.TabIndex = 7;
+            this.lblApellido.Text = "Apellido:";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
+            this.lblNombre.Location = new System.Drawing.Point(7, 25);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(54, 13);
+            this.lblNombre.TabIndex = 6;
+            this.lblNombre.Text = "Nombre:";
+            // 
             // txtDni
             // 
             this.txtDni.Location = new System.Drawing.Point(67, 78);
@@ -104,39 +127,6 @@
             this.txtNombre.TabIndex = 3;
             this.txtNombre.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.lblNombre.Location = new System.Drawing.Point(7, 25);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(54, 13);
-            this.lblNombre.TabIndex = 6;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.lblApellido.Location = new System.Drawing.Point(7, 52);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(56, 13);
-            this.lblApellido.TabIndex = 7;
-            this.lblApellido.Text = "Apellido:";
-            // 
-            // lblDni
-            // 
-            this.lblDni.AutoSize = true;
-            this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.lblDni.Location = new System.Drawing.Point(7, 78);
-            this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(33, 13);
-            this.lblDni.TabIndex = 8;
-            this.lblDni.Text = "DNI:";
-            // 
             // Domicilio
             // 
             this.Domicilio.Controls.Add(this.btnAgregarDomicilio);
@@ -152,6 +142,60 @@
             this.Domicilio.TabIndex = 9;
             this.Domicilio.TabStop = false;
             this.Domicilio.Text = "Domicilio:";
+            // 
+            // btnAgregarDomicilio
+            // 
+            this.btnAgregarDomicilio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAgregarDomicilio.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAgregarDomicilio.Depth = 0;
+            this.btnAgregarDomicilio.HighEmphasis = true;
+            this.btnAgregarDomicilio.Icon = null;
+            this.btnAgregarDomicilio.Location = new System.Drawing.Point(22, 107);
+            this.btnAgregarDomicilio.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAgregarDomicilio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAgregarDomicilio.Name = "btnAgregarDomicilio";
+            this.btnAgregarDomicilio.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAgregarDomicilio.Size = new System.Drawing.Size(165, 36);
+            this.btnAgregarDomicilio.TabIndex = 12;
+            this.btnAgregarDomicilio.Text = "Agregar Domicilio";
+            this.btnAgregarDomicilio.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAgregarDomicilio.UseAccentColor = false;
+            this.btnAgregarDomicilio.UseVisualStyleBackColor = true;
+            this.btnAgregarDomicilio.Click += new System.EventHandler(this.btnAgregarDomicilio_Click);
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Location = new System.Drawing.Point(78, 30);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(121, 20);
+            this.txtDireccion.TabIndex = 11;
+            // 
+            // cmbLocalidad
+            // 
+            this.cmbLocalidad.FormattingEnabled = true;
+            this.cmbLocalidad.Location = new System.Drawing.Point(78, 81);
+            this.cmbLocalidad.Name = "cmbLocalidad";
+            this.cmbLocalidad.Size = new System.Drawing.Size(121, 21);
+            this.cmbLocalidad.TabIndex = 10;
+            // 
+            // cmbProvincia
+            // 
+            this.cmbProvincia.FormattingEnabled = true;
+            this.cmbProvincia.Location = new System.Drawing.Point(78, 54);
+            this.cmbProvincia.Name = "cmbProvincia";
+            this.cmbProvincia.Size = new System.Drawing.Size(121, 21);
+            this.cmbProvincia.TabIndex = 9;
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
+            this.lblDireccion.Location = new System.Drawing.Point(9, 30);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(65, 13);
+            this.lblDireccion.TabIndex = 8;
+            this.lblDireccion.Text = "Direccion:";
             // 
             // lblLocalidad
             // 
@@ -176,59 +220,6 @@
             this.lblProvincia.Text = "Provincia:";
             this.lblProvincia.Click += new System.EventHandler(this.label3_Click);
             // 
-            // lblDireccion
-            // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.lblDireccion.Location = new System.Drawing.Point(9, 30);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(65, 13);
-            this.lblDireccion.TabIndex = 8;
-            this.lblDireccion.Text = "Direccion:";
-            // 
-            // cmbProvincia
-            // 
-            this.cmbProvincia.FormattingEnabled = true;
-            this.cmbProvincia.Location = new System.Drawing.Point(78, 54);
-            this.cmbProvincia.Name = "cmbProvincia";
-            this.cmbProvincia.Size = new System.Drawing.Size(121, 21);
-            this.cmbProvincia.TabIndex = 9;
-            // 
-            // cmbLocalidad
-            // 
-            this.cmbLocalidad.FormattingEnabled = true;
-            this.cmbLocalidad.Location = new System.Drawing.Point(78, 81);
-            this.cmbLocalidad.Name = "cmbLocalidad";
-            this.cmbLocalidad.Size = new System.Drawing.Size(121, 21);
-            this.cmbLocalidad.TabIndex = 10;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(78, 30);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(121, 20);
-            this.txtDireccion.TabIndex = 11;
-            // 
-            // btnAgregarDomicilio
-            // 
-            this.btnAgregarDomicilio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAgregarDomicilio.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAgregarDomicilio.Depth = 0;
-            this.btnAgregarDomicilio.HighEmphasis = true;
-            this.btnAgregarDomicilio.Icon = null;
-            this.btnAgregarDomicilio.Location = new System.Drawing.Point(22, 107);
-            this.btnAgregarDomicilio.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAgregarDomicilio.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAgregarDomicilio.Name = "btnAgregarDomicilio";
-            this.btnAgregarDomicilio.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAgregarDomicilio.Size = new System.Drawing.Size(165, 36);
-            this.btnAgregarDomicilio.TabIndex = 12;
-            this.btnAgregarDomicilio.Text = "Agregar Domicilio";
-            this.btnAgregarDomicilio.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAgregarDomicilio.UseAccentColor = false;
-            this.btnAgregarDomicilio.UseVisualStyleBackColor = true;
-            // 
             // grpContacto
             // 
             this.grpContacto.Controls.Add(this.btnAgregarTelefono);
@@ -243,6 +234,38 @@
             this.grpContacto.TabIndex = 18;
             this.grpContacto.TabStop = false;
             this.grpContacto.Text = "Contacto";
+            // 
+            // btnAgregarTelefono
+            // 
+            this.btnAgregarTelefono.Location = new System.Drawing.Point(194, 50);
+            this.btnAgregarTelefono.Name = "btnAgregarTelefono";
+            this.btnAgregarTelefono.Size = new System.Drawing.Size(107, 21);
+            this.btnAgregarTelefono.TabIndex = 17;
+            this.btnAgregarTelefono.Text = "Agregar telefono";
+            this.btnAgregarTelefono.UseVisualStyleBackColor = true;
+            this.btnAgregarTelefono.Click += new System.EventHandler(this.btnAgregarTelefono_Click);
+            // 
+            // lblTelefono
+            // 
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
+            this.lblTelefono.Location = new System.Drawing.Point(10, 52);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(61, 13);
+            this.lblTelefono.TabIndex = 14;
+            this.lblTelefono.Text = "Telefono:";
+            // 
+            // lblMail
+            // 
+            this.lblMail.AutoSize = true;
+            this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
+            this.lblMail.Location = new System.Drawing.Point(11, 19);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(34, 13);
+            this.lblMail.TabIndex = 13;
+            this.lblMail.Text = "Mail:";
             // 
             // grpRedes
             // 
@@ -262,10 +285,11 @@
             // 
             this.btnCargarRedes.Location = new System.Drawing.Point(230, 19);
             this.btnCargarRedes.Name = "btnCargarRedes";
-            this.btnCargarRedes.Size = new System.Drawing.Size(61, 21);
+            this.btnCargarRedes.Size = new System.Drawing.Size(61, 22);
             this.btnCargarRedes.TabIndex = 16;
             this.btnCargarRedes.Text = "Agregar";
             this.btnCargarRedes.UseVisualStyleBackColor = true;
+            this.btnCargarRedes.Click += new System.EventHandler(this.btnCargarRedes_Click);
             // 
             // cmbRedes
             // 
@@ -305,28 +329,6 @@
             this.txtMail.Size = new System.Drawing.Size(223, 20);
             this.txtMail.TabIndex = 3;
             // 
-            // lblMail
-            // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.lblMail.Location = new System.Drawing.Point(11, 19);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(34, 13);
-            this.lblMail.TabIndex = 13;
-            this.lblMail.Text = "Mail:";
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.lblTelefono.Location = new System.Drawing.Point(10, 52);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(61, 13);
-            this.lblTelefono.TabIndex = 14;
-            this.lblTelefono.Text = "Telefono:";
-            // 
             // vScrollBar1
             // 
             this.vScrollBar1.Location = new System.Drawing.Point(596, 64);
@@ -344,15 +346,6 @@
             this.lblDomicilios.Size = new System.Drawing.Size(68, 13);
             this.lblDomicilios.TabIndex = 13;
             this.lblDomicilios.Text = "Domicilios:";
-            // 
-            // btnAgregarTelefono
-            // 
-            this.btnAgregarTelefono.Location = new System.Drawing.Point(194, 50);
-            this.btnAgregarTelefono.Name = "btnAgregarTelefono";
-            this.btnAgregarTelefono.Size = new System.Drawing.Size(107, 21);
-            this.btnAgregarTelefono.TabIndex = 17;
-            this.btnAgregarTelefono.Text = "Agregar telefono";
-            this.btnAgregarTelefono.UseVisualStyleBackColor = true;
             // 
             // dgvDomicilios
             // 
@@ -387,6 +380,7 @@
             // 
             // btnCargarNvoPersonal
             // 
+            this.btnCargarNvoPersonal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnCargarNvoPersonal.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnCargarNvoPersonal.Depth = 0;
             this.btnCargarNvoPersonal.HighEmphasis = true;
@@ -396,17 +390,19 @@
             this.btnCargarNvoPersonal.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCargarNvoPersonal.Name = "btnCargarNvoPersonal";
             this.btnCargarNvoPersonal.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCargarNvoPersonal.Size = new System.Drawing.Size(574, 36);
+            this.btnCargarNvoPersonal.Size = new System.Drawing.Size(209, 36);
             this.btnCargarNvoPersonal.TabIndex = 23;
             this.btnCargarNvoPersonal.Text = "Cargar nuevo personal";
             this.btnCargarNvoPersonal.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnCargarNvoPersonal.UseAccentColor = false;
             this.btnCargarNvoPersonal.UseVisualStyleBackColor = true;
+            this.btnCargarNvoPersonal.Click += new System.EventHandler(this.btnCargarNvoPersonal_Click);
             // 
             // frmRegistroPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(616, 574);
             this.Controls.Add(this.btnCargarNvoPersonal);
             this.Controls.Add(this.lblTyR);
@@ -417,7 +413,9 @@
             this.Controls.Add(this.grpContacto);
             this.Controls.Add(this.Domicilio);
             this.Controls.Add(this.grpDatos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegistroPersonal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Personal";
             this.Load += new System.EventHandler(this.frmRegistroPersonal_Load);
             this.grpDatos.ResumeLayout(false);
