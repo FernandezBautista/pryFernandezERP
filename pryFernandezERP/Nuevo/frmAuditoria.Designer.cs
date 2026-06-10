@@ -39,6 +39,7 @@
             this.lblAccion = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblUsusario = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
             this.grpFiltrar.SuspendLayout();
             this.SuspendLayout();
@@ -167,11 +168,23 @@
             this.lblUsusario.Text = "Usuario:";
             this.lblUsusario.Click += new System.EventHandler(this.label1_Click);
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCerrar.Location = new System.Drawing.Point(495, 33);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(102, 23);
+            this.btnCerrar.TabIndex = 34;
+            this.btnCerrar.Text = "Cerrar Sesion";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // frmAuditoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 562);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.grpFiltrar);
             this.Controls.Add(this.dgvAuditoria);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -198,5 +211,6 @@
         private System.Windows.Forms.MonthCalendar calendario;
         private MaterialSkin.Controls.MaterialButton btnTodo;
         private MaterialSkin.Controls.MaterialButton btnBuscar;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

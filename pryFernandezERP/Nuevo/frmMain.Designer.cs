@@ -28,6 +28,7 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,14 +58,14 @@
             // registrarToolStripMenuItem
             // 
             this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
-            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.registrarToolStripMenuItem.Text = "Registrar";
             this.registrarToolStripMenuItem.Click += new System.EventHandler(this.registrarToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -126,12 +127,24 @@
             this.lblHora.TabIndex = 4;
             this.lblHora.Text = "Hora";
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCerrar.Location = new System.Drawing.Point(465, 38);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(102, 23);
+            this.btnCerrar.TabIndex = 34;
+            this.btnCerrar.Text = "Cerrar Sesion";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(574, 300);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblRol);
             this.Controls.Add(this.lblUsuario);
@@ -162,5 +175,6 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

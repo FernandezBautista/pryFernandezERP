@@ -9,7 +9,6 @@ namespace pryFernandezERP
 {
     public partial class frmEditarPersonal : MaterialForm
     {
-        // Almacena el correo original para el WHERE del UPDATE final
         private string mailOriginal = "";
 
         public frmEditarPersonal()
@@ -24,7 +23,9 @@ namespace pryFernandezERP
             CargarLocalidades();
             CargarCorreosBusqueda();
             ConfigurarGrillas();
-            ModoEdicion(false); // Bloquea campos hasta que se realice una búsqueda exitosa
+            cmbLocalidad.Enabled = false;
+            txtDni.MaxLength = 8;
+            ModoEdicion(false);
         }
 
         private void ConfigurarGrillas()
@@ -33,10 +34,14 @@ namespace pryFernandezERP
             dgvDomicilios.Columns.Add("Direccion", "Dirección");
             dgvDomicilios.Columns.Add("Provincia", "Provincia");
             dgvDomicilios.Columns.Add("Localidad", "Localidad");
+            dgvDomicilios.AllowUserToAddRows = false;
+            dgvDomicilios.AllowUserToDeleteRows = false;
 
             dgvContactos.Columns.Clear();
             dgvContactos.Columns.Add("Tipo", "Tipo");
             dgvContactos.Columns.Add("Valor", "Valor");
+            dgvContactos.AllowUserToAddRows = false;
+            dgvContactos.AllowUserToDeleteRows = false;
         }
 
         private void CargarProvincias()
@@ -90,7 +95,6 @@ namespace pryFernandezERP
                 OleDbCommand cmd = new OleDbCommand("SELECT Mail FROM Personal ORDER BY Mail", cn.conexion);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
-
                 cmbMail.DisplayMember = "Mail";
                 cmbMail.DataSource = dt;
                 cmbMail.SelectedIndex = -1;
@@ -98,7 +102,26 @@ namespace pryFernandezERP
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error cargando correos de búsqueda: " + ex.Message);
+                MessageBox.Show("Error cargando correos: " + ex.Message);
+            }
+        }
+
+        private void cmbProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbProvincia.SelectedItem == null)
+            {
+                cmbLocalidad.Enabled = false;
+                cmbLocalidad.SelectedIndex = -1;
+                return;
+            }
+
+            object idProv = cmbProvincia.SelectedValue;
+            if (idProv != null && idProv.ToString() == "5")
+                cmbLocalidad.Enabled = true;
+            else
+            {
+                cmbLocalidad.Enabled = false;
+                cmbLocalidad.SelectedIndex = -1;
             }
         }
 
@@ -110,13 +133,23 @@ namespace pryFernandezERP
             dgvDomicilios.Enabled = activado;
             dgvContactos.Enabled = activado;
             btnGuardarEdicion.Enabled = activado;
+            chkActivo.Enabled = activado;
+        }
+
+        private bool ValidarDNI(string dni)
+        {
+            if (string.IsNullOrWhiteSpace(dni)) return false;
+            if (dni.Length < 7 || dni.Length > 8) return false;
+            foreach (char c in dni)
+                if (!char.IsDigit(c)) return false;
+            return true;
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cmbMail.Text.Trim()))
             {
-                MessageBox.Show("Por favor, seleccione o ingrese un correo para buscar.", "Aviso");
+                MessageBox.Show("Seleccioná o ingresá un correo para buscar.", "Aviso");
                 return;
             }
 
@@ -125,27 +158,27 @@ namespace pryFernandezERP
             {
                 cn.conexion.Open();
 
-                // 1. BUSCAR DATOS PRINCIPALES
-                string query = "SELECT DNI, Nombre, Apellido, Telefono, Mail, Direccion, Id_Provincia, Id_Localidad FROM Personal WHERE Mail = ?";
+                string query = "SELECT DNI, Nombre, Apellido, Telefono, Mail, Direccion, Id_Provincia, Id_Localidad, Activo FROM Personal WHERE Mail = ?";
                 OleDbCommand cmd = new OleDbCommand(query, cn.conexion);
                 cmd.Parameters.AddWithValue("@Mail", cmbMail.Text.Trim());
-
                 OleDbDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
                     mailOriginal = reader["Mail"].ToString();
-                    string dniEmpleado = reader["DNI"].ToString(); // Guardamos el DNI para buscar en otras tablas
 
-                    // Llenar TextBoxes
-                    txtDni.Text = dniEmpleado;
+                    txtDni.Text = reader["DNI"].ToString();
                     txtNombre.Text = reader["Nombre"].ToString();
                     txtApellido.Text = reader["Apellido"].ToString();
                     txtMail.Text = reader["Mail"].ToString();
                     txtTelefono.Text = reader["Telefono"].ToString();
                     txtDireccion.Text = reader["Direccion"].ToString();
 
-                    // Llenar ComboBoxes
+                    chkActivo.Checked = reader["Activo"] != DBNull.Value && (bool)reader["Activo"];
+
+                    string idProv = reader["Id_Provincia"] != DBNull.Value ? reader["Id_Provincia"].ToString() : "";
+                    string idLoc = reader["Id_Localidad"] != DBNull.Value ? reader["Id_Localidad"].ToString() : "";
+
                     if (reader["Id_Provincia"] != DBNull.Value)
                         cmbProvincia.SelectedValue = reader["Id_Provincia"];
                     else
@@ -156,55 +189,48 @@ namespace pryFernandezERP
                     else
                         cmbLocalidad.SelectedIndex = -1;
 
-                    // Limpiar grillas
+                    string direccion = reader["Direccion"].ToString();
+                    string mail = reader["Mail"].ToString();
+                    string tel = reader["Telefono"].ToString();
+
+                    reader.Close();
+
+                    string nomProvincia = "";
+                    string nomLocalidad = "";
+
+                    if (idProv != "")
+                    {
+                        OleDbCommand cmdProv = new OleDbCommand("SELECT Provincia FROM Provincias WHERE Id = ?", cn.conexion);
+                        cmdProv.Parameters.AddWithValue("@Id", idProv);
+                        object resProv = cmdProv.ExecuteScalar();
+                        if (resProv != null) nomProvincia = resProv.ToString();
+                    }
+
+                    if (idLoc != "")
+                    {
+                        OleDbCommand cmdLoc = new OleDbCommand("SELECT Localidad FROM Localidad WHERE Id = ?", cn.conexion);
+                        cmdLoc.Parameters.AddWithValue("@Id", idLoc);
+                        object resLoc = cmdLoc.ExecuteScalar();
+                        if (resLoc != null) nomLocalidad = resLoc.ToString();
+                    }
+
                     dgvDomicilios.Rows.Clear();
                     dgvContactos.Rows.Clear();
 
-                    // --- CARGAR DOMICILIO PRINCIPAL EN LA GRILLA ---
-                    if (!string.IsNullOrEmpty(txtDireccion.Text))
-                    {
-                        // Extraemos el texto real del ComboBox para evitar que se cargue vacío en la grilla
-                        string prov = cmbProvincia.SelectedIndex != -1 ? ((DataRowView)cmbProvincia.SelectedItem)["Provincia"].ToString() : "";
-                        string loc = cmbLocalidad.SelectedIndex != -1 ? ((DataRowView)cmbLocalidad.SelectedItem)["Localidad"].ToString() : "";
+                    if (!string.IsNullOrEmpty(direccion))
+                        dgvDomicilios.Rows.Add(direccion, nomProvincia, nomLocalidad);
 
-                        dgvDomicilios.Rows.Add(txtDireccion.Text, prov, loc);
-                    }
+                    if (!string.IsNullOrEmpty(mail))
+                        dgvContactos.Rows.Add("Mail", mail);
 
-                    // --- CARGAR CONTACTOS PRINCIPALES EN LA GRILLA ---
-                    if (!string.IsNullOrEmpty(txtMail.Text))
-                        dgvContactos.Rows.Add("Mail", txtMail.Text);
+                    if (!string.IsNullOrEmpty(tel))
+                        dgvContactos.Rows.Add("Teléfono", tel);
 
-                    if (!string.IsNullOrEmpty(txtTelefono.Text))
-                        dgvContactos.Rows.Add("Teléfono", txtTelefono.Text);
+                    if (dgvDomicilios.Rows.Count > 0)
+                        dgvDomicilios.Rows[0].Selected = true;
 
-                    reader.Close(); // Cerramos el reader principal para poder ejecutar otras consultas
-
-                    // ====================================================================
-                    // 2. BUSCAR DATOS ADICIONALES (REDES Y OTROS DOMICILIOS)
-                    // ====================================================================
-                    // ATENCIÓN: Para que esto funcione, en tu base de datos y en tu frmRegistroPersonal 
-                    // tenés que haber creado y guardado datos en tablas como 'ContactoPersonal' o 'Redes'
-
-                    try
-                    {
-                        // EJEMPLO: Si tenés una tabla "Redes" relacionada por DNI
-                        string queryRedes = "SELECT TipoRed, Usuario FROM Redes WHERE DNI = ?";
-                        OleDbCommand cmdRedes = new OleDbCommand(queryRedes, cn.conexion);
-                        cmdRedes.Parameters.AddWithValue("@DNI", dniEmpleado);
-
-                        OleDbDataReader readerRedes = cmdRedes.ExecuteReader();
-                        while (readerRedes.Read())
-                        {
-                            dgvContactos.Rows.Add(readerRedes["TipoRed"].ToString(), readerRedes["Usuario"].ToString());
-                        }
-                        readerRedes.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        // Si la tabla no existe aún, ignoramos el error para que no se cuelgue el programa
-                        Console.WriteLine("Aviso: No se pudo cargar redes extra. " + ex.Message);
-                    }
-                    // ====================================================================
+                    if (dgvContactos.Rows.Count > 0)
+                        dgvContactos.Rows[0].Selected = true;
 
                     ModoEdicion(true);
                 }
@@ -214,6 +240,7 @@ namespace pryFernandezERP
                     ModoEdicion(false);
                     LimpiarCampos();
                 }
+
                 cn.conexion.Close();
             }
             catch (Exception ex)
@@ -240,13 +267,9 @@ namespace pryFernandezERP
                 string valor = dgvContactos.CurrentRow.Cells["Valor"].Value?.ToString();
 
                 if (tipo == "Teléfono")
-                {
                     txtTelefono.Text = valor;
-                }
                 else if (tipo == "Mail")
-                {
                     txtMail.Text = valor;
-                }
                 else
                 {
                     cmbRedes.Text = tipo;
@@ -262,7 +285,7 @@ namespace pryFernandezERP
                 dgvDomicilios.CurrentRow.Cells["Direccion"].Value = txtDireccion.Text;
                 dgvDomicilios.CurrentRow.Cells["Provincia"].Value = cmbProvincia.Text;
                 dgvDomicilios.CurrentRow.Cells["Localidad"].Value = cmbLocalidad.Text;
-                MessageBox.Show("Domicilio actualizado localmente en la tabla.", "Aviso");
+                MessageBox.Show("Domicilio actualizado.", "Aviso");
             }
         }
 
@@ -273,7 +296,7 @@ namespace pryFernandezERP
                 if (row.Cells["Tipo"].Value?.ToString() == "Mail")
                 {
                     row.Cells["Valor"].Value = txtMail.Text;
-                    MessageBox.Show("Mail actualizado localmente en la tabla.", "Aviso");
+                    MessageBox.Show("Mail actualizado.", "Aviso");
                     return;
                 }
             }
@@ -287,7 +310,7 @@ namespace pryFernandezERP
                 if (row.Cells["Tipo"].Value?.ToString() == "Teléfono")
                 {
                     row.Cells["Valor"].Value = txtTelefono.Text;
-                    MessageBox.Show("Teléfono actualizado localmente en la tabla.", "Aviso");
+                    MessageBox.Show("Teléfono actualizado.", "Aviso");
                     return;
                 }
             }
@@ -307,7 +330,7 @@ namespace pryFernandezERP
                 if (row.Cells["Tipo"].Value?.ToString() == cmbRedes.Text)
                 {
                     row.Cells["Valor"].Value = txtUsuario.Text;
-                    MessageBox.Show("Red social actualizada localmente en la tabla.", "Aviso");
+                    MessageBox.Show("Red social actualizada.", "Aviso");
                     return;
                 }
             }
@@ -316,9 +339,24 @@ namespace pryFernandezERP
 
         private void btnGuardarEdicion_Click_1(object sender, EventArgs e)
         {
-            if (txtNombre.Text.Trim() == "" || txtApellido.Text.Trim() == "" || txtDni.Text.Trim() == "" || txtMail.Text.Trim() == "")
+            if (txtNombre.Text.Trim() == "")
             {
-                MessageBox.Show("Los campos Nombre, Apellido, DNI y Mail son obligatorios.", "Dato faltante");
+                MessageBox.Show("El campo Nombre es obligatorio.", "Dato faltante");
+                return;
+            }
+            if (txtApellido.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Apellido es obligatorio.", "Dato faltante");
+                return;
+            }
+            if (!ValidarDNI(txtDni.Text.Trim()))
+            {
+                MessageBox.Show("El DNI debe tener entre 7 y 8 dígitos numéricos.", "DNI inválido");
+                return;
+            }
+            if (txtMail.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo Mail es obligatorio.", "Dato faltante");
                 return;
             }
 
@@ -328,11 +366,10 @@ namespace pryFernandezERP
                 cn.conexion.Open();
 
                 string query = @"UPDATE Personal 
-                                 SET DNI = ?, Nombre = ?, Apellido = ?, Telefono = ?, Mail = ?, Direccion = ?, Id_Provincia = ?, Id_Localidad = ? 
+                                 SET DNI = ?, Nombre = ?, Apellido = ?, Telefono = ?, Mail = ?, Direccion = ?, Id_Provincia = ?, Id_Localidad = ?, Activo = ?
                                  WHERE Mail = ?";
 
                 OleDbCommand cmd = new OleDbCommand(query, cn.conexion);
-
                 cmd.Parameters.AddWithValue("@DNI", txtDni.Text);
                 cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
                 cmd.Parameters.AddWithValue("@Apellido", txtApellido.Text);
@@ -341,13 +378,14 @@ namespace pryFernandezERP
                 cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                 cmd.Parameters.AddWithValue("@Id_Provincia", cmbProvincia.SelectedValue ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@Id_Localidad", cmbLocalidad.SelectedValue ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Activo", chkActivo.Checked);
                 cmd.Parameters.AddWithValue("@MailOriginal", mailOriginal);
 
                 cmd.ExecuteNonQuery();
                 cn.conexion.Close();
 
                 CAuditoria.Grabar("Modificación de Personal: " + txtNombre.Text + " " + txtApellido.Text);
-                MessageBox.Show("Los cambios se guardaron correctamente en la base de datos.", "Éxito");
+                MessageBox.Show("Cambios guardados correctamente.", "Éxito");
 
                 LimpiarCampos();
                 ModoEdicion(false);
@@ -355,7 +393,7 @@ namespace pryFernandezERP
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar los cambios: " + ex.Message);
+                MessageBox.Show("Error al guardar: " + ex.Message);
             }
         }
 
@@ -376,12 +414,24 @@ namespace pryFernandezERP
             txtUsuario.Text = "@usuario";
             cmbProvincia.SelectedIndex = -1;
             cmbLocalidad.SelectedIndex = -1;
+            cmbLocalidad.Enabled = false;
             cmbRedes.SelectedIndex = -1;
             cmbMail.SelectedIndex = -1;
             cmbMail.Text = "";
+            chkActivo.Checked = false;
             dgvDomicilios.Rows.Clear();
             dgvContactos.Rows.Clear();
             mailOriginal = "";
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            CAuditoria.Grabar("Cierre de Sesión");
+            Sesion.Usuario = "";
+            Sesion.Rol = "";
+            frmInicioS frm = new frmInicioS();
+            frm.Show();
+            this.Close();
         }
     }
 }

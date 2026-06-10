@@ -58,5 +58,15 @@ namespace pryFernandezERP
             frmAuditoria frm = new frmAuditoria();
             frm.Show();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            CAuditoria.Grabar("Cierre de Sesión");
+            Sesion.Usuario = "";
+            Sesion.Rol = "";
+            frmInicioS frm = new frmInicioS();
+            frm.Show();
+            this.Close();
+        }
     }
 }
