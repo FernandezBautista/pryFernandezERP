@@ -163,9 +163,9 @@
             // 
             this.grpContacto.Controls.Add(this.btnActualizarRed);
             this.grpContacto.Controls.Add(this.btnActualizarTel);
-            this.grpContacto.Controls.Add(this.btnActualizarMail);
             this.grpContacto.Controls.Add(this.lblTelefono);
             this.grpContacto.Controls.Add(this.lblMail);
+            this.grpContacto.Controls.Add(this.btnActualizarMail);
             this.grpContacto.Controls.Add(this.grpRedes);
             this.grpContacto.Controls.Add(this.txtTelefono);
             this.grpContacto.Controls.Add(this.txtMail);
@@ -205,14 +205,14 @@
             this.btnActualizarTel.Depth = 0;
             this.btnActualizarTel.HighEmphasis = true;
             this.btnActualizarTel.Icon = null;
-            this.btnActualizarTel.Location = new System.Drawing.Point(164, 108);
+            this.btnActualizarTel.Location = new System.Drawing.Point(18, 116);
             this.btnActualizarTel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnActualizarTel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizarTel.Name = "btnActualizarTel";
             this.btnActualizarTel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnActualizarTel.Size = new System.Drawing.Size(137, 37);
+            this.btnActualizarTel.Size = new System.Drawing.Size(289, 18);
             this.btnActualizarTel.TabIndex = 31;
-            this.btnActualizarTel.Text = "Actualizar Tel...";
+            this.btnActualizarTel.Text = "Actualizar Telefono";
             this.btnActualizarTel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnActualizarTel.UseAccentColor = false;
             this.btnActualizarTel.UseVisualStyleBackColor = true;
@@ -226,12 +226,12 @@
             this.btnActualizarMail.Depth = 0;
             this.btnActualizarMail.HighEmphasis = true;
             this.btnActualizarMail.Icon = null;
-            this.btnActualizarMail.Location = new System.Drawing.Point(13, 108);
+            this.btnActualizarMail.Location = new System.Drawing.Point(18, 50);
             this.btnActualizarMail.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnActualizarMail.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizarMail.Name = "btnActualizarMail";
             this.btnActualizarMail.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnActualizarMail.Size = new System.Drawing.Size(133, 37);
+            this.btnActualizarMail.Size = new System.Drawing.Size(282, 18);
             this.btnActualizarMail.TabIndex = 32;
             this.btnActualizarMail.Text = "Actualizar Mail";
             this.btnActualizarMail.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -244,7 +244,7 @@
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.lblTelefono.Location = new System.Drawing.Point(11, 71);
+            this.lblTelefono.Location = new System.Drawing.Point(15, 88);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(73, 16);
             this.lblTelefono.TabIndex = 14;
@@ -255,7 +255,7 @@
             this.lblMail.AutoSize = true;
             this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.lblMail.Location = new System.Drawing.Point(14, 37);
+            this.lblMail.Location = new System.Drawing.Point(14, 22);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(40, 16);
             this.lblMail.TabIndex = 13;
@@ -267,7 +267,7 @@
             this.grpRedes.Controls.Add(this.txtUsuario);
             this.grpRedes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRedes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.grpRedes.Location = new System.Drawing.Point(10, 154);
+            this.grpRedes.Location = new System.Drawing.Point(10, 143);
             this.grpRedes.Name = "grpRedes";
             this.grpRedes.Size = new System.Drawing.Size(298, 54);
             this.grpRedes.TabIndex = 10;
@@ -303,7 +303,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(98, 68);
+            this.txtTelefono.Location = new System.Drawing.Point(94, 85);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(169, 22);
             this.txtTelefono.TabIndex = 4;
@@ -311,7 +311,7 @@
             // txtMail
             // 
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMail.Location = new System.Drawing.Point(60, 34);
+            this.txtMail.Location = new System.Drawing.Point(60, 19);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(240, 22);
             this.txtMail.TabIndex = 3;
