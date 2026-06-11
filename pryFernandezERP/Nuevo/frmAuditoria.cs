@@ -184,5 +184,10 @@ namespace pryFernandezERP
             frm.Show();
             this.Close();
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

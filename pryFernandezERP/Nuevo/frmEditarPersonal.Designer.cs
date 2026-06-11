@@ -81,17 +81,18 @@
             this.lblBuscar.Location = new System.Drawing.Point(20, 96);
             this.lblBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(129, 19);
+            this.lblBuscar.Size = new System.Drawing.Size(119, 19);
             this.lblBuscar.TabIndex = 0;
-            this.lblBuscar.Text = "Buscar por correo:";
+            this.lblBuscar.Text = "Buscar personal:";
             // 
             // cmbMail
             // 
             this.cmbMail.FormattingEnabled = true;
-            this.cmbMail.Location = new System.Drawing.Point(177, 96);
+            this.cmbMail.Location = new System.Drawing.Point(145, 96);
             this.cmbMail.Name = "cmbMail";
-            this.cmbMail.Size = new System.Drawing.Size(273, 21);
+            this.cmbMail.Size = new System.Drawing.Size(305, 21);
             this.cmbMail.TabIndex = 1;
+            this.cmbMail.SelectedIndexChanged += new System.EventHandler(this.cmbMail_SelectedIndexChanged);
             // 
             // btnBuscar
             // 
@@ -554,7 +555,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 789);
+            this.ClientSize = new System.Drawing.Size(631, 788);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.btnCancelar);
@@ -570,6 +571,7 @@
             this.Controls.Add(this.cmbMail);
             this.Controls.Add(this.lblBuscar);
             this.Name = "frmEditarPersonal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Personal";
             this.Load += new System.EventHandler(this.frmEditarPersonal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactos)).EndInit();

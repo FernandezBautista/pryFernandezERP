@@ -68,5 +68,11 @@ namespace pryFernandezERP
             frm.Show();
             this.Close();
         }
+
+        private void verBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVerBD frm = new frmVerBD();
+            frm.Show();
+        }
     }
 }

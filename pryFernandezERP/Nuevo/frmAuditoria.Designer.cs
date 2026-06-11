@@ -40,6 +40,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblUsusario = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnVolver = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
             this.grpFiltrar.SuspendLayout();
             this.SuspendLayout();
@@ -179,11 +180,33 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.AutoSize = false;
+            this.btnVolver.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnVolver.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnVolver.Depth = 0;
+            this.btnVolver.HighEmphasis = true;
+            this.btnVolver.Icon = null;
+            this.btnVolver.Location = new System.Drawing.Point(6, 565);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnVolver.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnVolver.Size = new System.Drawing.Size(590, 36);
+            this.btnVolver.TabIndex = 35;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnVolver.UseAccentColor = false;
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // frmAuditoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 562);
+            this.ClientSize = new System.Drawing.Size(603, 615);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.grpFiltrar);
             this.Controls.Add(this.dgvAuditoria);
@@ -212,5 +235,6 @@
         private MaterialSkin.Controls.MaterialButton btnTodo;
         private MaterialSkin.Controls.MaterialButton btnBuscar;
         private System.Windows.Forms.Button btnCerrar;
+        private MaterialSkin.Controls.MaterialButton btnVolver;
     }
 }

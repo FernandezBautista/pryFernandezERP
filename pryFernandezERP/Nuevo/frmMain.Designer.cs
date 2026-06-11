@@ -81,7 +81,7 @@
             // verRegistrosToolStripMenuItem
             // 
             this.verRegistrosToolStripMenuItem.Name = "verRegistrosToolStripMenuItem";
-            this.verRegistrosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.verRegistrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verRegistrosToolStripMenuItem.Text = "Ver registros";
             this.verRegistrosToolStripMenuItem.Click += new System.EventHandler(this.verRegistrosToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(242)))));
             this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(68)))));
-            this.lblUsuario.Location = new System.Drawing.Point(343, 242);
+            this.lblUsuario.Location = new System.Drawing.Point(6, 228);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 2;
@@ -110,7 +110,7 @@
             this.lblRol.AutoSize = true;
             this.lblRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(242)))));
             this.lblRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(68)))));
-            this.lblRol.Location = new System.Drawing.Point(343, 262);
+            this.lblRol.Location = new System.Drawing.Point(6, 243);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(23, 13);
             this.lblRol.TabIndex = 3;
@@ -121,7 +121,7 @@
             this.lblHora.AutoSize = true;
             this.lblHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(242)))));
             this.lblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(68)))));
-            this.lblHora.Location = new System.Drawing.Point(462, 262);
+            this.lblHora.Location = new System.Drawing.Point(6, 258);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(30, 13);
             this.lblHora.TabIndex = 4;
@@ -154,7 +154,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fernández ERP";
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

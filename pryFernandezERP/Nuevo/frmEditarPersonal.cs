@@ -92,17 +92,20 @@ namespace pryFernandezERP
             try
             {
                 cn.conexion.Open();
-                OleDbCommand cmd = new OleDbCommand("SELECT Mail FROM Personal ORDER BY Mail", cn.conexion);
+                OleDbCommand cmd = new OleDbCommand(
+                    "SELECT Mail, DNI & ' - ' & Nombre & ' ' & Apellido AS NombreCompleto FROM Personal ORDER BY Apellido",
+                    cn.conexion);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
-                cmbMail.DisplayMember = "Mail";
+                cmbMail.DisplayMember = "NombreCompleto";
+                cmbMail.ValueMember = "Mail";
                 cmbMail.DataSource = dt;
                 cmbMail.SelectedIndex = -1;
                 cn.conexion.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error cargando correos: " + ex.Message);
+                MessageBox.Show("Error cargando personal: " + ex.Message);
             }
         }
 
@@ -160,7 +163,7 @@ namespace pryFernandezERP
 
                 string query = "SELECT DNI, Nombre, Apellido, Telefono, Mail, Direccion, Id_Provincia, Id_Localidad, Activo FROM Personal WHERE Mail = ?";
                 OleDbCommand cmd = new OleDbCommand(query, cn.conexion);
-                cmd.Parameters.AddWithValue("@Mail", cmbMail.Text.Trim());
+                cmd.Parameters.AddWithValue("@Mail", cmbMail.SelectedValue?.ToString().Trim());
                 OleDbDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -432,6 +435,11 @@ namespace pryFernandezERP
             frmInicioS frm = new frmInicioS();
             frm.Show();
             this.Close();
+        }
+
+        private void cmbMail_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
